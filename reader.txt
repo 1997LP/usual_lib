@@ -1,9 +1,3 @@
 Git is a distribute version control system
 Git is free software distribute under the GPL
 Git has a mutable inedx called stage
-Git tracks changes
-<<<<<<< HEAD
-Creating a new branch is quick AND  simlpe
-=======
-Creating a new branch is quick AND simple
->>>>>>> feature
