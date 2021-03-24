@@ -1,0 +1,26 @@
+#!/bin/bash
+trap "clear;exit" 2 
+c_path="/proc/softirqs"  
+len=$(grep "CPU0" $c_path | wc -w) 
+loop=$((len/$1))
+
+if [ $1 -le $len ]
+then 
+
+    while [ true ]
+    do
+	i=0
+	j=1
+	while [ $i -lt $loop ]
+	do
+		grep "CPU"  $c_path | awk -v k=$j -v p=$1 '{printf("%-10s","Title"); while(p>0){p--;printf("%-10s", $k);k++} printf "\r\n" }'
+		grep ":"    $c_path | awk -v k=$(($j+1)) -v num2=$1 '{u=k; printf("%-10s",$1); for(p=0;p<num2;p++){printf("%-10s", $u);u++} printf "\r\n" }'
+ 		printf "\r\n"
+ 		i=$(($i+1))
+ 		j=$(( 1+$i*1 ))
+	done
+	sleep 1
+    done
+else
+    printf "input parameter error,please inter again\r\n"
+fi
