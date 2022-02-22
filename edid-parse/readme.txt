@@ -1,0 +1,1 @@
+将EDID信息复制到edid.txt，编译parse-edid.c，运行可执行文件即可
