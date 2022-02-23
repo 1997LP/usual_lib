@@ -36,6 +36,12 @@ extern char HexToChar(unsigned char );
 extern void ByteToStr(unsigned char , char *);
 extern void ShortToStr(unsigned short , char *);
 extern void IntToStr(unsigned int , char *);
+
+#define word64(x)  *((volatile unsigned long   *)(x))
+#define word32(x)  *((volatile unsigned int    *)(x))
+#define short16(x) *((volatile unsigned short  *)(x))
+#define char8(x)   *((volatile unsigned char   *)(x))
+
 #endif
 
 #endif
